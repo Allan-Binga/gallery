@@ -14,10 +14,11 @@ pipeline{
                 sh 'npm install'
             }
         }
-        stage ('Start the server') {
+         stage ('Start the server') {
             steps {
                 sh 'node server'
             }
         }
+       
     }
 }
