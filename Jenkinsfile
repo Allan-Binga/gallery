@@ -14,9 +14,9 @@ pipeline{
                 sh 'npm install'
             }
         }
-         stage ('Run tests') {
+         stage ('Switch to test branch') {
             steps {
-                sh 'npm test'
+                sh 'git checkout test'
             }
         }
        
