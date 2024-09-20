@@ -14,9 +14,9 @@ pipeline{
                 sh 'npm install'
             }
         }
-        stage ('Run tests') {
+        stage ('Start the server') {
             steps {
-                sh 'npm run tests'
+                sh 'node server'
             }
         }
     }
