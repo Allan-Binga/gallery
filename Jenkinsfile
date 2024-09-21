@@ -1,9 +1,9 @@
-pipeline{
+pipeline {
     agent any
-    tools{
+    tools {
         nodejs 'node'
     }
-    stages{
+    stages {
         stage ('Clone Repository') {
             steps {
                 git branch: 'master', url: 'https://github.com/Allan-Binga/gallery'
@@ -14,25 +14,25 @@ pipeline{
                 sh 'npm install'
             }
         }
-         stage ('Switch to test branch') {
+        stage ('Switch to test branch') {
             steps {
                 sh 'git checkout test'
                 sh 'npm install'
             }
         }
         stage ('Run tests') {
-            steps{
+            steps {
                 sh 'npm test'
             }
         }
     }
-    post{
-        failure{
-            emailtext{
-                mail to: 'allan.binga@student.moringaschool.com'
+    post {
+        failure {
+            emailext(
+                to: 'allan.binga@student.moringaschool.com',
                 subject: "Running the tests failed",
-                body:"The tests failed because the pipeline could not connect to MOngoDB."
-            }
+                body: "The tests failed because the pipeline could not connect to MongoDB."
+            )
         }
     }
 }
