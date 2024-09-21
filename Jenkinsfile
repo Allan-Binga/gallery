@@ -19,6 +19,10 @@ pipeline{
                 sh 'git checkout test'
             }
         }
-       
+        stage ('Run tests') {
+            steps{
+                sh 'npm test'
+            }
+        }
     }
 }
