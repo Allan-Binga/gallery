@@ -26,4 +26,13 @@ pipeline{
             }
         }
     }
+    post{
+        failure{
+            emailtext{
+                mail to: 'allan.binga@student.moringaschool.com'
+                subject: "Running the tests failed",
+                body:"The tests failed because the pipeline could not connect to MOngoDB."
+            }
+        }
+    }
 }
