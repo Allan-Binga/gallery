@@ -30,7 +30,7 @@ pipeline {
         failure {
             emailext(
                 to: 'allan.binga@student.moringaschool.com',
-                subject: "Running the tests failed",
+                subject: "Failed running tests.",
                 body: "The tests failed because the pipeline could not connect to MongoDB."
             )
         }
