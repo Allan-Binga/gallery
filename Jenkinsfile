@@ -4,7 +4,7 @@ pipeline {
         nodejs 'node'
     }
     environment {
-        RENDER_APP_URL = 'https://gallerydevops2.onrender.com/'
+        RENDER_APP_URL = 'https://gallery-f79v.onrender.com/'
     }
     stages {
         stage('Clone Repository') {
