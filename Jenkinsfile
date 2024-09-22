@@ -17,13 +17,6 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage ('Switch to test branch') {
-            steps {
-                sh 'git checkout test'
-                sh 'npm install'
-                echo "App deployed to: ${RENDER_APP_URL}"
-            }
-        }
         stage ('Run tests') {
             steps {
                 sh 'npm test'
@@ -33,6 +26,7 @@ pipeline {
             steps {
                 sh 'npm install'
                 sh 'node server.js'
+                echo "App deployed to: ${RENDER_APP_URL}"
             }
         }
     }
