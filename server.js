@@ -14,10 +14,10 @@ const app = express();
 // connecting the database
 require('dotenv').config();
 let mongodb_url = process.env.MONGODB_URL;
-let dbName = 'gallery';
-mongoose.connect(`${mongodb_url}${dbName}`,{ useNewUrlParser: true , useUnifiedTopology: true }, (err)=>{
-    if (err) console.log(err)
+mongoose.connect(mongodb_url, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+    if (err) console.log(err);
 });
+
 
 // test if the database has connected successfully
 // let db = mongoose.connection;
