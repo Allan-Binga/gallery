@@ -3,6 +3,9 @@ pipeline {
     tools {
         nodejs 'node'
     }
+    environment{
+        RENDER_APP_URL = 'https://gallerydevops.onrender.com/'
+    }
     stages {
         stage ('Clone Repository') {
             steps {
@@ -18,6 +21,7 @@ pipeline {
             steps {
                 sh 'git checkout test'
                 sh 'npm install'
+                echo "App deployed to: ${RENDER_APP_URL}"
             }
         }
         stage ('Run tests') {
@@ -25,9 +29,10 @@ pipeline {
                 sh 'npm test'
             }
         }
-        stage ('Deploy to Heroku') {
+        stage ('Deploy to Render') {
             steps {
-                
+                sh 'npm install'
+                sh 'node server.js'
             }
         }
     }
