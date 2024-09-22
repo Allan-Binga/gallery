@@ -25,6 +25,7 @@ pipeline {
         }
         stage('Deploy to Render') {
             steps {  
+                // node server
                 echo "App deployed to: ${RENDER_APP_URL}"
             }
         }
