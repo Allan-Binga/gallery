@@ -30,6 +30,10 @@ pipeline {
         }
     }
     post {
+        always {
+            slackSend channel: 'allan_ip1',
+            message: "Build ID is ${env.BUILD_NUMBER} and app deployed to ${RENDER_APP_URL}"
+        }
         failure {
             emailext(
                 to: 'allan.binga@student.moringaschool.com',
