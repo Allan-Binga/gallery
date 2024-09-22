@@ -3,30 +3,28 @@ pipeline {
     tools {
         nodejs 'node'
     }
-    environment{
+    environment {
         RENDER_APP_URL = 'https://gallerydevops.onrender.com/'
     }
     stages {
-        stage ('Clone Repository') {
+        stage('Clone Repository') {
             steps {
                 git branch: 'master', url: 'https://github.com/Allan-Binga/gallery'
             }
         }
-        stage ('Install Dependencies') {
+        stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                sh 'npm install'  
             }
         }
-        stage ('Run tests') {
+        stage('Run tests') {
             steps {
-                sh 'npm install'
-                sh 'npm test'
+                sh 'npm test'  
             }
         }
-        stage ('Deploy to Render') {
+        stage('Deploy to Render') {
             steps {
-                sh 'npm install'
-                sh 'node server.js'
+                sh 'node server.js'  
                 echo "App deployed to: ${RENDER_APP_URL}"
             }
         }
